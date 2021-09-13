@@ -10,6 +10,7 @@ import { TimerComponent } from './components/timer/timer.component';
 import { GameComponent } from './components/game/game.component';
 import { GameSquaresComponent } from './components/game-squares/game-squares.component';
 import { Socket } from 'socket.io-client';
+import { StatsComponent } from './components/stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Socket } from 'socket.io-client';
     MakeroomComponent,
     TimerComponent,
     GameComponent,
-    GameSquaresComponent
+    GameSquaresComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,

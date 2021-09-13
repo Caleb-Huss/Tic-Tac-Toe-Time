@@ -4,8 +4,6 @@ import { GameState } from '../../models/GameState';
 import { SocketService } from '../../services/socket.service';
 import { Subscription } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -58,25 +56,12 @@ export class GameComponent implements OnInit {
       this.pullPlayer = true;
     });
     this.ttttDataSub = this.socketService.getTicTacToeData().subscribe(data => {
-      console.log("in current gamestate subscription: ");
-      console.log(data);
-      console.log(data.isOver);
-      console.log(data.playerList);
-      console.log(data.gameStarted);
       //update game data with new data from server
       this.gameState=data;
-  
     });
     //this gets the players from the server
     this.socketService.getPlayers(({ room: this.roomId }));
   }
-
-  // ngOnDestroy(): void {
-  //   // clean up subscriptions
-  //   this.playerSub.unsubscribe();
-  //   this.ttttDataSub.unsubscribe();
-  //   this.audioSub.unsubscribe();
-  // }
   sendTicTacToeGamestate(currentGameState: GameState) {
     this.socketService.sendTicTacToeData({ gameboard: currentGameState, room: this.roomId });
   }
@@ -111,7 +96,6 @@ export class GameComponent implements OnInit {
       } else {
         this.gameState.playerPieces.push(possiblePieces[x]);
       }
-
     }
   }
 
@@ -164,9 +148,6 @@ export class GameComponent implements OnInit {
     let col = idx % (this.numOfPlayers + 1); // remainder to specify column
     this.gameState.grid[row][col] = piece;
   }
-  // updateGameState(newGameState: GameState) {
-  //   this.gameState = newGameState;
-  // }
 
   playAudio(audioCue: string) {
     let audio = <HTMLAudioElement>document.getElementById('audio');
