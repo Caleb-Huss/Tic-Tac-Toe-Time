@@ -1,0 +1,37 @@
+
+<div style="height: 100vh;">
+    <audio id="audio"></audio>
+      <div style="height: 88vh;">
+        <h1 style="color: white;">Tic Tac Toe</h1>
+        <h2 style="color: white;" *ngIf="!gameState.winner && gameState.gameStarted" >Current Player: {{ gameState.playerList[gameState.currentPlayer] }} : {{gameState.playerPieces[gameState.currentPlayer]}} </h2>
+        
+        <div style="margin: auto; width: 50%" >
+          <div style="text-align: center; font-size: 2em;" *ngIf="gameState.gameStarted">
+          <span style="color: white;" >Turn Order: </span>
+          <span style="color: white;"
+          *ngFor='let piece of gameState.playerPieces'>
+            {{piece}}>
+          </span>
+          <span style="color: white;">{{gameState.playerPieces[0]}}</span>
+          </div>
+          <main style="grid-template-columns: repeat({{numOfPlayers+1}},{{squareHeight}}%);">
+            <app-game-squares
+                *ngFor="let val of gameState.squares; let i = index"
+                [value]="val"
+                (click)="makeMove(i)"
+                [fontSize]='fontSize'
+                >
+            </app-game-squares>
+          </main>
+        </div>
+        <h2 style="color: white; text-align: center;" *ngIf="gameState.winner">
+            {{ gameState.winner }} won!
+        </h2>
+      </div>
+    
+    </div>
+    
+    
+    
+    
+    
