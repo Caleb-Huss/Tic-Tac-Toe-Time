@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,9 @@ import { GameComponent } from './components/game/game.component';
 import { GameSquaresComponent } from './components/game-squares/game-squares.component';
 import { Socket } from 'socket.io-client';
 import { StatsComponent } from './components/stats/stats.component';
+import { RulesComponent } from './components/rules/rules.component';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -20,11 +24,14 @@ import { StatsComponent } from './components/stats/stats.component';
     TimerComponent,
     GameComponent,
     GameSquaresComponent,
-    StatsComponent
+    StatsComponent,
+    RulesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
