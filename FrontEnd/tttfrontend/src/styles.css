@@ -5,3 +5,7 @@
 .innercenter{
     margin: auto;
 }
+body{
+    background-color: rgb(58, 58, 58);
+    color: rgb(206, 203, 203);
+}
