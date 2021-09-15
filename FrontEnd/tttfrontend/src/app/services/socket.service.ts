@@ -8,9 +8,9 @@ import { GameState } from '../models/GameState';
 })
 export class SocketService {
 
-  //private url = 'http://localhost:3000';
+  private url = 'http://localhost:3000';
   //private url = 'wss://revabox.eastus.cloudapp.azure.com/dotnetroyalesocket/';
-  private url = 'wss://revabox.eastus.cloudapp.azure.com';
+  //private url = 'wss://revabox.eastus.cloudapp.azure.com';
 
   private socket: Socket;
 
@@ -18,12 +18,11 @@ export class SocketService {
   currentPlayerList = this.playerList.asObservable();
 
   constructor() {
-    this.socket = io(this.url, { path: '/dotnetroyalesocket/socket.io/', transports: ['websocket', 'pulling', 'flashsocket'], secure: true });
+    this.socket = io(this.url, {transports: ['websocket', 'pulling', 'flashsocket'], secure: true });
   }
   // ================= General Room Stuff ==============================
   joinRoom(data): void {
     this.socket.emit('join', data);
-    sessionStorage.setItem('roomId', data.room);
   }
 
   reloadRoomList(username): void {

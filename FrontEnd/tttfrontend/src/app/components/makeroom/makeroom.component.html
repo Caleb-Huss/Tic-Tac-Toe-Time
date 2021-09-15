@@ -1,1 +1,33 @@
-<p>makeroom works!</p>
+<h1 class="center topspace">Create a Room</h1>
+<div class="center">
+    <p>
+        Room Name: {{roomName}}  
+    </p>
+    <p>RoomCode: {{roomCode}} <button  class="iconbtn" (click)="copyClipboard()"><i class="bi-clipboard icon" role="img" aria-label="Clipboard"></i></button></p>
+</div>
+<form (ngSubmit)="makeRoom()" class="center">
+    <div class="innercenter">
+        <input [(ngModel)]="roomName" name="roomname">
+        <div class="slidecontainer">
+            <label for="totalplayers"><b>Total Players: {{totalPlayers}}</b></label>
+            <br>
+            <input type="range" min="4" max="10" value="{{totalPlayers}}" class="slider" id="totalplayers"
+                (change)="changePlayers($event)">
+
+            <div class="slidecontainer">
+                <label for="CPUs"><b>Computer Players: {{totalCPUs}}</b></label>
+                <br>
+                <input type="range" min="0" max="{{totalPlayers-1}}" value="{{totalCPUs}}" class="slider" id="CPUs"
+                    (change)="changeCPUs($event)">
+            </div>
+        </div>
+
+
+        <input type="submit" value="Create Room" class="btn btn-primary">
+    </div>
+
+</form>
+<div class="center">
+
+    <button type="button" class="btn btn-primary innercenter" (click)="goHome()">Go Back</button>
+</div>
