@@ -24,10 +24,7 @@ io.on('connection',(socket)=>{
 
     socket.on('join',(data) =>{
 
-        console.log('join requested by ' + data.user);
-        console.log(data);
         socket.join(data.room);
-        console.log('a user joined');
         let room = roomList.find(({id}) => id == data.room);
         if(!room && data.room) 
         {
