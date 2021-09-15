@@ -14,6 +14,8 @@ import { Socket } from 'socket.io-client';
 import { StatsComponent } from './components/stats/stats.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WaitroomComponent } from './components/waitroom/waitroom.component';
 
 
 @NgModule({
@@ -26,12 +28,15 @@ import { HomeComponent } from './components/home/home.component';
     GameSquaresComponent,
     StatsComponent,
     RulesComponent,
-    HomeComponent
+    HomeComponent,
+    WaitroomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

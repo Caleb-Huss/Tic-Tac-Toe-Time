@@ -9,7 +9,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  username: string | null = sessionStorage.getItem("username");
+  tempuser:string;
   ngOnInit(): void {
+  }
+  assignName(){
+    this.username=this.tempuser;
+    sessionStorage.setItem('username', this.username);
   }
   goToPage(i: number)
   {

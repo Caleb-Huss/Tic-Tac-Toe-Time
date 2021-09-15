@@ -7,6 +7,7 @@ import { MakeroomComponent } from './components/makeroom/makeroom.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { RulesComponent } from './components/rules/rules.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { WaitroomComponent } from './components/waitroom/waitroom.component';
 
 const routes: Routes = [
   {path: '',component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'gamesquares',component: GameSquaresComponent},
   {path: 'rooms',component: RoomsComponent},
   {path: 'stats',component: StatsComponent},
+  {path: 'waitroom',component: WaitroomComponent},
   {path: 'rules',component: RulesComponent}
 ];
 // {path: ,component: },
