@@ -9,3 +9,15 @@ body{
     background-color: rgb(58, 58, 58);
     color: rgb(206, 203, 203);
 }
+.topspace{
+    margin-top: 10%;
+}
+.icon{
+    fill: rgb(58, 58, 58);
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+.iconbtn{
+    border: none;
+    background:  rgb(58, 58, 58);
+}
