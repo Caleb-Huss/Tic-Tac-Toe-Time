@@ -1,2 +1,25 @@
-<p>rooms works!</p>
-<button type="button" class="btn btn-primary" (click)="goHome()" >Go Back</button>
+<div class="center topspaceSM">
+    <h1>Join A Room</h1>
+</div>
+<div class="roomlist center">
+    <div class="roomcomp" *ngFor="let room of this.roomList; index as i;">
+        <div *ngIf="actualPlayers[i]<(room.totalPlayers-room.totalCPUs)">
+            <p class="roominfo">Join <b>{{room.roomName}}</b>      {{actualPlayers[i]+room.totalCPUs}}/{{room.totalPlayers}} players 
+                <button  class="iconbtn" (click)="showCodeBox(i)">
+                    <i class="bi-chevron-down icon" role="img" aria-label="DropDown"></i>
+                </button>
+            </p>
+            <div class="shrink innercenter input-group" *ngIf="enterCode[i];">
+                <p class="code">Enter Room Code:   </p>
+                <input type="text" [(ngModel)]="tempCode" class="form-control">
+                <button class="btn btn-primary" type="button" (click)="gotoRoom(i);"> Join</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="center">
+    <button type="button" class="btn btn-primary innercenter" (click)="goHome()">Go Back</button>
+</div>

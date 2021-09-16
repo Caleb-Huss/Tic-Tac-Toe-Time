@@ -28,7 +28,7 @@ io.on('connection',(socket)=>{
         let room = roomList.find(({id}) => id == data.room);
         if(!room && data.room) 
         {
-            roomList.push({id: data.room, users: [], name: data.name});
+            roomList.push({id: data.room, users: [], options: data.options});
         }
         room = roomList.find(({id}) => id == data.room);
         if(room && room.users && !room.users.find((user) => user == data.user) && data.user)

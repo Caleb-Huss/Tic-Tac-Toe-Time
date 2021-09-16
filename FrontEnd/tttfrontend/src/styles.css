@@ -12,6 +12,9 @@ body{
 .topspace{
     margin-top: 10%;
 }
+.topspaceSM{
+    margin-top: 5%;
+}
 .icon{
     fill: rgb(58, 58, 58);
     background-color: rgb(58, 58, 58);

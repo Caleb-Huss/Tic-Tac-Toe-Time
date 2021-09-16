@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   tempuser:string;
   ngOnInit(): void {
   }
+  // this is used to get a username from a player
+  // if their name is empty they wont be able to see the menu
   assignName(){
     this.username=this.tempuser;
     sessionStorage.setItem('username', this.username);
