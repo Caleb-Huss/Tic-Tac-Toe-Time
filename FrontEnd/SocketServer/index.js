@@ -28,7 +28,7 @@ io.on('connection',(socket)=>{
         let room = roomList.find(({id}) => id == data.room);
         if(!room && data.room) 
         {
-            roomList.push({id: data.room, users: []});
+            roomList.push({id: data.room, users: [], name: data.name});
         }
         room = roomList.find(({id}) => id == data.room);
         if(room && room.users && !room.users.find((user) => user == data.user) && data.user)
@@ -47,8 +47,6 @@ io.on('connection',(socket)=>{
     });
     
     socket.on('leave', (data) => {
-        console.log('leave requested by ' + data.user);
-        console.log(data);
         let room = roomList.find(({id}) => id == data.room);
         if(room){
             let index = room.users.indexOf(data.user);
@@ -59,19 +57,13 @@ io.on('connection',(socket)=>{
             }
             console.log(roomList);
             index = roomList.findIndex(room => room.users.length == 0);
-            console.log(index);
             if(index >= 0) roomList.splice(index, 1);
         }
-        console.log(roomList);
-        console.log(io.sockets.adapter.rooms);
         io.emit('updatedRoomList',roomList);
     })
 
     socket.on('reloadRoomList', (username) =>
     {
-        console.log('reload requested by ' + username);
-        console.log(roomList);
-        console.log(io.sockets.adapter.rooms);
         io.emit('updatedRoomList',roomList);
     })
     socket.on('getPlayers',(data) => {

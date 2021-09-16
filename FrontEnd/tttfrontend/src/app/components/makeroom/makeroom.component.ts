@@ -56,11 +56,13 @@ export class MakeroomComponent implements OnInit {
     let newOptions:RoomOptions =
     {
       totalPlayers: this.totalPlayers,
-      totalCPUs: this.totalCPUs
+      totalCPUs: this.totalCPUs,
+      roomName: this.roomName,
+      roomCode: this.roomCode
     };
     this.optionsService.updateOptions(newOptions);
     this.socketService.leaveRoom({user:this.username, room:oldRoomCode});
-    this.socketService.joinRoom({user:this.username, room:this.roomCode});
+    this.socketService.joinRoom({user:this.username, room:this.roomCode, name:this.roomName});
     sessionStorage.setItem("roomCode", this.roomCode);
     this.router.navigate(['/waitroom']);
   }

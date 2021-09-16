@@ -10,7 +10,9 @@ export class RoomoptionsService {
   constructor() { }
   public options:RoomOptions = {
     totalPlayers: 4,
-    totalCPUs: 3
+    totalCPUs: 3,
+    roomCode: '',
+    roomName: ''
   };
 
   private source = new BehaviorSubject(this.options);
